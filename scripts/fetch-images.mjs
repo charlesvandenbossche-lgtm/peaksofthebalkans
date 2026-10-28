@@ -1,8 +1,9 @@
 // Downloads the photos listed in scripts/images.json from the Travelbase media library,
 // resizes them to max 2400px wide and saves them as src/assets/img/<slot>.jpg.
 // Runs automatically via .github/workflows/fetch-images.yml whenever images.json changes.
-// Manual use: node scripts/fetch-images.mjs [slot ...]
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+// Only slots without a photo yet are downloaded (signed links expire after ~7 days).
+// Manual use: node scripts/fetch-images.mjs [slot ...]   (named slots are always re-downloaded)
+import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import sharp from 'sharp';
 
 const manifest = JSON.parse(await readFile(new URL('./images.json', import.meta.url), 'utf8'));
@@ -13,6 +14,9 @@ await mkdir(outDir, { recursive: true });
 let ok = 0, failed = 0;
 for (const [slot, { url, id }] of Object.entries(manifest.images)) {
   if (only.length && !only.includes(slot)) continue;
+  if (!only.length) {
+    try { await access(new URL(`${slot}.jpg`, outDir)); continue; } catch {}
+  }
   try {
     const res = await fetch(url, { redirect: 'follow' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
