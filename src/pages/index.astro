@@ -1,0 +1,25 @@
+---
+// Root: send visitors to their language, default English.
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Peaks of the Balkans — the up-to-date hiking guide</title>
+    <meta name="description" content="The practical, up-to-date guide to hiking the Peaks of the Balkans trail through Albania, Kosovo and Montenegro: stages, permits, guesthouses, transport and season." />
+    <link rel="canonical" href="https://www.peaksofthebalkans.org/en/" />
+    <link rel="alternate" hreflang="en" href="https://www.peaksofthebalkans.org/en/" />
+    <link rel="alternate" hreflang="nl" href="https://www.peaksofthebalkans.org/nl/" />
+    <link rel="alternate" hreflang="fr" href="https://www.peaksofthebalkans.org/fr/" />
+    <link rel="alternate" hreflang="de" href="https://www.peaksofthebalkans.org/de/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.peaksofthebalkans.org/en/" />
+    <meta http-equiv="refresh" content="1; url=/en/" />
+    <script is:inline>
+      var l = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      location.replace('/' + (['nl', 'fr', 'de'].includes(l) ? l : 'en') + '/');
+    </script>
+  </head>
+  <body>
+    <p><a href="/en/">English</a> · <a href="/nl/">Nederlands</a> · <a href="/fr/">Français</a> · <a href="/de/">Deutsch</a></p>
+  </body>
+</html>

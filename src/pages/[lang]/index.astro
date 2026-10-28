@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import TrailFacts from '../../components/TrailFacts.astro';
+import PlanEasy from '../../components/PlanEasy.astro';
+import { langs, t, type Lang } from '../../i18n/ui';
+import { articlesFor, latestFor, getImage } from '../../lib/content';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const all = await articlesFor(lang);
+const essentials = all.filter((a) => a.data.category !== 'news').slice(0, 7);
+const latest = await latestFor(lang, 3);
+const hero = getImage('hero');
+---
+<Base lang={lang} title={t(lang, 'hero.title')} description={t(lang, 'hero.lead')} path=""
+  jsonLd={[{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Peaks of the Balkans', url: 'https://www.peaksofthebalkans.org/', inLanguage: lang }]}>
+  <section class="hero">
+    <Image src={hero} alt="Hiker with trekking poles on a rocky ridge above the Accursed Mountains" widths={[400, 800, 1600, 2400]} sizes="100vw" loading="eager" fetchpriority="high" class="hero-img" />
+    <div class="hero-shade"></div>
+    <div class="wrap hero-content">
+      <p class="eyebrow">Albania · Kosovo · Montenegro</p>
+      <h1>{t(lang, 'hero.title')}</h1>
+      <p class="lead">{t(lang, 'hero.lead')}</p>
+      <a class="btn" href={`/${lang}/peaks-of-the-balkans-guide/`}>{t(lang, 'hero.cta')} →</a>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <TrailFacts lang={lang} />
+
+    <section class="section">
+      <div class="section-head">
+        <h2>{t(lang, 'home.essentials')}</h2>
+        <a href={`/${lang}/articles/`}>{t(lang, 'home.allArticles')} →</a>
+      </div>
+      <div class="grid">
+        {essentials.map((a, i) => <ArticleCard article={a} lang={lang} large={i === 0} />)}
+      </div>
+    </section>
+
+    {latest.length > 0 && (
+      <section class="section">
+        <div class="section-head"><h2>{t(lang, 'home.latest')}</h2></div>
+        <div class="grid grid--3">
+          {latest.map((a) => <ArticleCard article={a} lang={lang} />)}
+        </div>
+      </section>
+    )}
+    <PlanEasy lang={lang} />
+  </div>
+</Base>

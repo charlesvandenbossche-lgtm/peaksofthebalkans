@@ -1,0 +1,65 @@
+{
+  "_note": "Photos from the Travelbase media library (brand BT / The Balkan Trail). The GitHub Action 'fetch-images' downloads full-size versions into src/assets/img. Signed links expire ~4 Nov 2026; after that, request new links by id.",
+  "images": {
+    "hero": {
+      "id": "146GzakC-nPEgOeohxHUppTZt0PNbfWMJ",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/146GzakC-nPEgOeohxHUppTZt0PNbfWMJ/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjAxLCAiZiI6ICIxNDZHemFrQy1uUEVnT2VvaHhIVXBwVFp0MFBOYmZXTUoiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.eEJqNDztSn7oVs8WtjwIpIZJXYsH4K81tZSR6kpZsRo"
+    },
+    "ridge": {
+      "id": "1CV11-dsxPN8daj2kn-Bco-eB_xH4psdL",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1CV11-dsxPN8daj2kn-Bco-eB_xH4psdL/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjAxLCAiZiI6ICIxQ1YxMS1kc3hQTjhkYWoya24tQmNvLWVCX3hINHBzZEwiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.52iNQmqaKf_j9zMCUm1qqXekr-TZd2ZbcFm0hTKUSdM"
+    },
+    "valley-trail": {
+      "id": "1wX4o_UEdUEYDNkgTxMus9xDHB3zQqy1t",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1wX4o_UEdUEYDNkgTxMus9xDHB3zQqy1t/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjAyLCAiZiI6ICIxd1g0b19VRWRVRVlETmtnVHhNdXM5eERIQjN6UXF5MXQiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.qv8KWz4mvVo8PdezE3sTa_UJoLdedp3y7mzD4Ca-eEg"
+    },
+    "celebrate": {
+      "id": "18WQdee9KBtEd9uSTxKptmxByuLiupU8e",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/18WQdee9KBtEd9uSTxKptmxByuLiupU8e/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjAzLCAiZiI6ICIxOFdRZGVlOUtCdEVkOXVTVHhLcHRteEJ5dUxpdXBVOGUiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.EJU5Pw_0rOMZBzL44cnAG7pqTZkOtynEwQgWZLRuit4"
+    },
+    "theth-church": {
+      "id": "1WVz592LtvEjFImNcBX9CB2HG4A7gYNuS",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1WVz592LtvEjFImNcBX9CB2HG4A7gYNuS/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjA0LCAiZiI6ICIxV1Z6NTkyTHR2RWpGSW1OY0JYOUNCMkhHNEE3Z1lOdVMiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.JWCC5-O5zWzXbzfZ9OxXhH1T5q_YcG8gJ5gbkxpVKgI"
+    },
+    "theth-hikers": {
+      "id": "1XEqhX5VOmpwBDKphQND8iZYL3A_X40rd",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1XEqhX5VOmpwBDKphQND8iZYL3A_X40rd/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjA1LCAiZiI6ICIxWEVxaFg1Vk9tcHdCREtwaFFORDhpWllMM0FfWDQwcmQiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.3r2bEA8_p9PZlhxvpy4V9sW6wxH_QiDdSP_3HBB4ErI"
+    },
+    "theth-valley": {
+      "id": "1J9NRgvsocEa6GY_R0jmiwZEqlf6gYcj7",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1J9NRgvsocEa6GY_R0jmiwZEqlf6gYcj7/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjA1LCAiZiI6ICIxSjlOUmd2c29jRWE2R1lfUjBqbWl3WkVxbGY2Z1ljajciLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.sNDl-N99VnF8bS1cR9mRWlGARkiWO3APptO4qNmm9MA"
+    },
+    "valbona-camp": {
+      "id": "1QVjy9Ll0vOw9L5qA2yxReDMMqH4bCEAw",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1QVjy9Ll0vOw9L5qA2yxReDMMqH4bCEAw/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjA2LCAiZiI6ICIxUVZqeTlMbDB2T3c5TDVxQTJ5eFJlRE1NcUg0YkNFQXciLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.0q2t4xLVvvRRD7nMaoUMSW_9R6i4imJBNy3z62hchNI"
+    },
+    "vusanje": {
+      "id": "1gwALAU05E5F9ajSW66zczmDtbIDsewyx",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1gwALAU05E5F9ajSW66zczmDtbIDsewyx/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjA5LCAiZiI6ICIxZ3dBTEFVMDVFNUY5YWpTVzY2emN6bUR0YklEc2V3eXgiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.xiJ6Rjw0NDQ6xpAnoc2lT2y87qSsQgzxpqfIyvikiiA"
+    },
+    "lake": {
+      "id": "1NvadjtTfjiVJ8ens2e39daWInVZydl9F",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1NvadjtTfjiVJ8ens2e39daWInVZydl9F/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjExLCAiZiI6ICIxTnZhZGp0VGZqaVZKOGVuczJlMzlkYVdJblZaeWRsOUYiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.G-vO-f0CHTnuY1k7EOJp1XuqH8iDcioteVN0PVVACnc"
+    },
+    "hikers-slope": {
+      "id": "1DyPvZEfL79-ZWcnIBYX0dIwDaNbjaPz6",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1DyPvZEfL79-ZWcnIBYX0dIwDaNbjaPz6/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjEyLCAiZiI6ICIxRHlQdlpFZkw3OS1aV2NuSUJZWDBkSXdEYU5iamFQejYiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.3WBfCxeMEZQuiH3VVZdi08XNhV5wIHIeDrxzgMh_uOo"
+    },
+    "sheep": {
+      "id": "19tAPNkgGzr8ssvYhkpJ2qm2u472TB95R",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/19tAPNkgGzr8ssvYhkpJ2qm2u472TB95R/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjEyLCAiZiI6ICIxOXRBUE5rZ0d6cjhzc3ZZaGtwSjJxbTJ1NDcyVEI5NVIiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.pPp8DMTdweOYcErCjq8cMfzLhSpoQuwnwuaSl4yRkwA"
+    },
+    "ridge-woman": {
+      "id": "1euIqYb9ZB90u-S5vZbkE0WCUDy_kJA7P",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1euIqYb9ZB90u-S5vZbkE0WCUDy_kJA7P/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjEzLCAiZiI6ICIxZXVJcVliOVpCOTB1LVM1dlpia0UwV0NVRHlfa0pBN1AiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.seEnF6n2U3b3mkXAUWKWQ4tKcxeYuq817oXUmDXB1Eg"
+    },
+    "summit": {
+      "id": "1noS0PcYHNlA7PT066RiRoHWSx0khqL2w",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1noS0PcYHNlA7PT066RiRoHWSx0khqL2w/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjE0LCAiZiI6ICIxbm9TMFBjWUhObEE3UFQwNjZSaVJvSFdTeDBraHFMMnciLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.Gmlf8Uc9lltluRzQZ1oCFz8Eq8gcBBXglzdBGQYaHMM"
+    },
+    "green-ridge": {
+      "id": "1PeK3r6pfNyx9KmgwC0CLf7UIhM_ZsQq0",
+      "url": "https://apps.travelbase.eu/a/media-search/public/api/image/1PeK3r6pfNyx9KmgwC0CLf7UIhM_ZsQq0/signed-download?size=large&t=dl1.eyJleHAiOiAxNzkzODIwNjE0LCAiZiI6ICIxUGVLM3I2cGZOeXg5S21nd0MwQ0xmN1VJaE1fWnNRcTAiLCAicyI6ICJsYXJnZSIsICJwbGF0Zm9ybSI6ICJtY3AiLCAidXNlciI6ICJjaGFybGVzLnZhbmRlbmJvc3NjaGVAdHJhdmVsYmFzZS5ldSJ9.kMHOm2Y8vHGtOKDFTGmWTQEwD0tSD_EqtBYh96SckOk"
+    }
+  }
+}

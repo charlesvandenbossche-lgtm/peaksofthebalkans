@@ -1,0 +1,20 @@
+---
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const n = (x: number) => x.toLocaleString({ en: 'en-GB', nl: 'nl-BE', fr: 'fr-BE', de: 'de-DE' }[lang]);
+const facts = [
+  [t(lang, 'facts.distance'), '± 192 km'],
+  [t(lang, 'facts.days'), t(lang, 'facts.daysValue')],
+  [t(lang, 'facts.season'), t(lang, 'facts.seasonValue')],
+  [t(lang, 'facts.huts'), '€ 30–50 (2026)'],
+  [t(lang, 'facts.highest'), `± ${n(9800)} m`],
+  [t(lang, 'facts.start'), 'AL · XK · ME'],
+];
+---
+<section class="facts" aria-labelledby="facts-title">
+  <h2 id="facts-title">{t(lang, 'facts.title')}</h2>
+  <dl>
+    {facts.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
+  </dl>
+</section>

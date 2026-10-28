@@ -1,0 +1,87 @@
+---
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import { languages, langs, t, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  /** path after /<lang>/, e.g. "" or "articles/" or "theth-to-valbona/" */
+  path: string;
+  /** languages this page exists in (for hreflang + switcher) */
+  available?: Lang[];
+  ogImage?: string;
+  jsonLd?: Record<string, unknown>[];
+}
+const { lang, title, description, path, available = langs, ogImage, jsonLd = [] } = Astro.props;
+const site = Astro.site!.toString().replace(/\/$/, '');
+const url = (l: Lang) => `${site}/${l}/${path}`;
+const fullTitle = path === '' ? `${title} | peaksofthebalkans.org` : `${title} | Peaks of the Balkans`;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url(lang)} />
+    {available.map((l) => <link rel="alternate" hreflang={l} href={url(l)} />)}
+    {available.includes('en') && <link rel="alternate" hreflang="x-default" href={url('en')} />}
+    <meta property="og:type" content={path === '' ? 'website' : 'article'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url(lang)} />
+    <meta property="og:site_name" content="Peaks of the Balkans" />
+    {ogImage && <meta property="og:image" content={new URL(ogImage, site).toString()} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {jsonLd.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="logo" href={`/${lang}/`} aria-label="Peaks of the Balkans home">
+          <svg viewBox="0 0 40 24" width="40" height="24" aria-hidden="true"><path d="M1 22 L8 9 L13 15 L21 2 L29 13 L33 8 L39 22 Z" fill="currentColor" opacity=".9"/><path d="M4 22 Q14 17 20 19 T36 16" stroke="var(--rhyolite)" stroke-width="2" fill="none" stroke-dasharray="3 2"/></svg>
+          <span>PeaksOfThe<b>Balkans</b></span>
+        </a>
+        <nav class="main-nav" aria-label="Main">
+          <a href={`/${lang}/peaks-of-the-balkans-guide/`}>{t(lang, 'nav.guide')}</a>
+          <a href={`/${lang}/articles/`}>{t(lang, 'nav.articles')}</a>
+          <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a>
+        </nav>
+        <details class="lang">
+          <summary aria-label={t(lang, 'lang.switch')}>{lang.toUpperCase()}</summary>
+          <ul>
+            {langs.map((l) => (
+              <li>
+                <a href={available.includes(l) ? `/${l}/${path}` : `/${l}/`} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>
+                  {languages[l]}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <p class="footer-logo">PeaksOfThe<b>Balkans</b></p>
+          <p>{t(lang, 'site.tagline')}</p>
+        </div>
+        <div>
+          <p class="small">{t(lang, 'footer.disclaimer')}</p>
+          <p class="small">{t(lang, 'footer.updated')} · © {new Date().getFullYear()} peaksofthebalkans.org · <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

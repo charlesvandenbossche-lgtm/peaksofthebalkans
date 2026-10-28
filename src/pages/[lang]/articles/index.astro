@@ -1,0 +1,29 @@
+---
+import Base from '../../../layouts/Base.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import { langs, t, type Lang } from '../../../i18n/ui';
+import { articlesFor } from '../../../lib/content';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const all = await articlesFor(lang);
+const groups = (['guide', 'planning', 'news'] as const)
+  .map((c) => ({ c, items: all.filter((a) => a.data.category === c) }))
+  .filter((g) => g.items.length);
+---
+<Base lang={lang} title={t(lang, 'articles.title')} description={t(lang, 'articles.lead')} path="articles/">
+  <div class="wrap page-head">
+    <h1>{t(lang, 'articles.title')}</h1>
+    <p class="lead">{t(lang, 'articles.lead')}</p>
+  </div>
+  <div class="wrap">
+    {groups.map(({ c, items }) => (
+      <section class="section">
+        <div class="section-head"><h2>{t(lang, `cat.${c}`)}</h2></div>
+        <div class="grid grid--3">{items.map((a) => <ArticleCard article={a} lang={lang} />)}</div>
+      </section>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,90 @@
+---
+import { Image, getImage as optimize } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import PlanEasy from '../../components/PlanEasy.astro';
+import { t, formatDate, type Lang } from '../../i18n/ui';
+import { articlesFor, getImage, langOf, slugOf, translationsOf, readingTime } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const all = await getCollection('articles', (a) => !a.data.draft);
+  return all.map((article) => ({ params: { lang: langOf(article), slug: slugOf(article) }, props: { article } }));
+}
+const { article } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const slug = Astro.params.slug!;
+const { Content, headings } = await render(article);
+const d = article.data;
+const img = getImage(d.image);
+const og = await optimize({ src: img, width: 1200, format: 'jpg' });
+const available = await translationsOf(slug);
+const toc = headings.filter((h) => h.depth === 2);
+const related = (await articlesFor(lang)).filter((a) => slugOf(a) !== slug).slice(0, 3);
+const site = 'https://www.peaksofthebalkans.org';
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: d.title, description: d.description, inLanguage: lang,
+    datePublished: d.pubDate.toISOString(), dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
+    image: new URL(og.src, site).toString(),
+    mainEntityOfPage: `${site}/${lang}/${slug}/`,
+    publisher: { '@type': 'Organization', name: 'peaksofthebalkans.org', url: site },
+  },
+  ...(d.answer ? [{
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: [{ '@type': 'Question', name: d.title, acceptedAnswer: { '@type': 'Answer', text: d.answer } }],
+  }] : []),
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Peaks of the Balkans', item: `${site}/${lang}/` },
+      { '@type': 'ListItem', position: 2, name: t(lang, 'nav.articles'), item: `${site}/${lang}/articles/` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: `${site}/${lang}/${slug}/` },
+    ],
+  },
+];
+---
+<Base lang={lang} title={d.title} description={d.description} path={`${slug}/`} available={available} ogImage={og.src} jsonLd={jsonLd}>
+  <article class="article">
+    <header class="article-head wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href={`/${lang}/`}>Peaks of the Balkans</a> / <a href={`/${lang}/articles/`}>{t(lang, 'nav.articles')}</a>
+      </nav>
+      <span class={`tag tag--${d.category}`}>{t(lang, `cat.${d.category}`)}</span>
+      <h1>{d.title}</h1>
+      <p class="meta">
+        <span class="checked">✓ {t(lang, 'article.updated')}: <time datetime={(d.updatedDate ?? d.pubDate).toISOString().slice(0, 10)}>{formatDate(lang, d.updatedDate ?? d.pubDate)}</time></span>
+        <span>· {t(lang, 'article.season')}</span>
+        <span>· {readingTime(article.body)} {t(lang, 'article.readingTime')}</span>
+      </p>
+      {d.answer ? (
+        <div class="quick-answer">
+          <p class="qa-label">{t(lang, 'article.answer')}</p>
+          <p>{d.answer}</p>
+        </div>
+      ) : (
+        <p class="lead">{d.description}</p>
+      )}
+    </header>
+    <figure class="article-hero wrap-wide">
+      <Image src={img} alt={d.imageAlt} widths={[400, 800, 1200, 1800]} sizes="(max-width: 1200px) 100vw, 1200px" loading="eager" />
+    </figure>
+    <div class="article-layout wrap">
+      {toc.length > 2 && (
+        <aside class="toc">
+          <p>{t(lang, 'article.toc')}</p>
+          <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </aside>
+      )}
+      <div class="prose">
+        <Content />
+        <PlanEasy lang={lang} />
+      </div>
+    </div>
+  </article>
+  <section class="wrap section">
+    <div class="section-head"><h2>{t(lang, 'article.related')}</h2></div>
+    <div class="grid grid--3">{related.map((a) => <ArticleCard article={a} lang={lang} />)}</div>
+  </section>
+</Base>

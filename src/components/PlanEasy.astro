@@ -1,0 +1,10 @@
+---
+import { t, type Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+<aside class="plan-easy" aria-label={t(lang, 'cta.title')}>
+  <p class="plan-easy-title">{t(lang, 'cta.title')}</p>
+  <p>{t(lang, 'cta.body')}</p>
+  <a href="https://thebalkantrail.com" rel="noopener">{t(lang, 'cta.link')} →</a>
+</aside>

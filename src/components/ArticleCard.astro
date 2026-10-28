@@ -1,0 +1,19 @@
+---
+import { Image } from 'astro:assets';
+import { getImage, slugOf, type Article } from '../lib/content';
+import { t, formatDate, type Lang } from '../i18n/ui';
+interface Props { article: Article; lang: Lang; large?: boolean }
+const { article, lang, large = false } = Astro.props;
+const { title, description, image, imageAlt, category, updatedDate, pubDate } = article.data;
+---
+<a class:list={['card', { 'card--large': large }]} href={`/${lang}/${slugOf(article)}/`}>
+  <div class="card-img">
+    <Image src={getImage(image)} alt={imageAlt} widths={[400, 800]} sizes="(max-width: 700px) 100vw, 400px" loading="lazy" />
+  </div>
+  <div class="card-body">
+    <span class={`tag tag--${category}`}>{t(lang, `cat.${category}`)}</span>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <span class="meta">{t(lang, 'article.updated')}: {formatDate(lang, updatedDate ?? pubDate)}</span>
+  </div>
+</a>
