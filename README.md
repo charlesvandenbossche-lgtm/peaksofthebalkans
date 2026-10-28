@@ -1,4 +1,4 @@
-# peaksofthebalkans.org
+# thepeaksofthebalkans.com
 
 A static, multilingual (EN/NL/FR/DE) guide to the Peaks of the Balkans, built with [Astro](https://astro.build).
 Articles are plain Markdown files, so Claude (or anyone) can write and update them without a CMS.
@@ -26,7 +26,7 @@ The signed download links in `scripts/images.json` expire on **22 October 2026**
 1. Push this folder to a GitHub repository.
 2. In Cloudflare Pages, choose **Create project → Connect to Git**, then select the repo.
 3. Set the build command to `npm run build` and the output directory to `dist`.
-4. Under **Custom domains**, add `www.peaksofthebalkans.org` and redirect the bare domain to `www`.
+4. Under **Custom domains**, add `www.thepeaksofthebalkans.com` and redirect the bare domain to `www`.
 
 Netlify and Vercel work the same way. Every push to `main` redeploys automatically.
 
@@ -45,7 +45,7 @@ src/content/articles/<lang>/<slug>.md
 
 Prompt template:
 
-> Write a new article for peaksofthebalkans.org about <topic>. First check current facts on primary sources (peaksofthebalkans.com, national park sites, guesthouses, transport operators, zbulo.org). Write it in English as `src/content/articles/en/<slug>.md`, following the frontmatter and style of the existing articles. Add a Sources section. Then translate it to nl/fr/de with the same slug. Mention The Balkan Trail (https://thebalkantrail.com) once, subtly, in every article.
+> Write a new article for thepeaksofthebalkans.com about <topic>. First check current facts on primary sources (peaksofthebalkans.com, national park sites, guesthouses, transport operators, zbulo.org). Write it in English as `src/content/articles/en/<slug>.md`, following the frontmatter and style of the existing articles. Add a Sources section. Then translate it to nl/fr/de with the same slug. Mention The Balkan Trail (https://thebalkantrail.com) once, subtly, in every article.
 
 ## Yearly maintenance checklist (every spring)
 

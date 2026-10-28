@@ -8,33 +8,33 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const copy: Record<Lang, { title: string; body: string[] }> = {
   en: {
-    title: 'About peaksofthebalkans.org',
+    title: 'About thepeaksofthebalkans.com',
     body: [
-      'peaksofthebalkans.org is a guide dedicated to one trail only: the Peaks of the Balkans, the cross-border loop through the Accursed Mountains of Albania, Kosovo and Montenegro.',
+      'thepeaksofthebalkans.com is a guide dedicated to one trail only: the Peaks of the Balkans, the cross-border loop through the Accursed Mountains of Albania, Kosovo and Montenegro.',
       'Permit rules, guesthouse prices, ferry and minibus timetables and snow conditions change every year. We check our articles against primary sources — the national parks, the border police permit procedures, transport operators and local guesthouses — and show the date each page was last checked.',
       'Spotted something that has changed? Let us know and we will update the page.',
     ],
   },
   nl: {
-    title: 'Over peaksofthebalkans.org',
+    title: 'Over thepeaksofthebalkans.com',
     body: [
-      'peaksofthebalkans.org is een gids over één enkele route: de Peaks of the Balkans, de grensoverschrijdende lus door de Vervloekte Bergen van Albanië, Kosovo en Montenegro.',
+      'thepeaksofthebalkans.com is een gids over één enkele route: de Peaks of the Balkans, de grensoverschrijdende lus door de Vervloekte Bergen van Albanië, Kosovo en Montenegro.',
       'Vergunningsregels, prijzen van gastenverblijven, dienstregelingen van veerboot en minibus en de sneeuwcondities veranderen elk jaar. We controleren onze artikels aan de hand van primaire bronnen — de nationale parken, de vergunningsprocedures van de grenspolitie, vervoerders en lokale gastenverblijven — en tonen op elke pagina wanneer ze laatst gecontroleerd werd.',
       'Zie je iets dat veranderd is? Laat het ons weten, dan passen we de pagina aan.',
     ],
   },
   fr: {
-    title: 'À propos de peaksofthebalkans.org',
+    title: 'À propos de thepeaksofthebalkans.com',
     body: [
-      'peaksofthebalkans.org est un guide consacré à un seul sentier : le Peaks of the Balkans, la boucle transfrontalière à travers les Montagnes maudites d’Albanie, du Kosovo et du Monténégro.',
+      'thepeaksofthebalkans.com est un guide consacré à un seul sentier : le Peaks of the Balkans, la boucle transfrontalière à travers les Montagnes maudites d’Albanie, du Kosovo et du Monténégro.',
       'Les règles des permis, les prix des maisons d’hôtes, les horaires du ferry et des minibus et l’enneigement changent chaque année. Nous vérifions nos articles auprès des sources officielles — les parcs nationaux, les procédures de permis de la police des frontières, les transporteurs et les maisons d’hôtes — et indiquons sur chaque page la date de la dernière vérification.',
       'Vous avez remarqué un changement ? Dites-le-nous et nous mettrons la page à jour.',
     ],
   },
   de: {
-    title: 'Über peaksofthebalkans.org',
+    title: 'Über thepeaksofthebalkans.com',
     body: [
-      'peaksofthebalkans.org ist ein Guide zu genau einem Weg: dem Peaks of the Balkans, der grenzüberschreitenden Runde durch die Verwunschenen Berge in Albanien, Kosovo und Montenegro.',
+      'thepeaksofthebalkans.com ist ein Guide zu genau einem Weg: dem Peaks of the Balkans, der grenzüberschreitenden Runde durch die Verwunschenen Berge in Albanien, Kosovo und Montenegro.',
       'Genehmigungsregeln, Gästehauspreise, Fähr- und Minibusfahrpläne und Schneeverhältnisse ändern sich jedes Jahr. Wir prüfen unsere Artikel anhand von Primärquellen — Nationalparks, Genehmigungsverfahren der Grenzpolizei, Verkehrsunternehmen und Gästehäuser vor Ort — und zeigen auf jeder Seite, wann sie zuletzt geprüft wurde.',
       'Ist dir etwas aufgefallen, das nicht mehr stimmt? Sag uns Bescheid, dann aktualisieren wir die Seite.',
     ],
@@ -47,7 +47,7 @@ const c = copy[lang];
     <h1>{c.title}</h1>
     <div class="prose">
       {c.body.map((p) => <p>{p}</p>)}
-      <p><a href="mailto:hello@peaksofthebalkans.org">hello@peaksofthebalkans.org</a></p>
+      <p><a href="mailto:hello@thepeaksofthebalkans.com">hello@thepeaksofthebalkans.com</a></p>
     </div>
   </div>
 </Base>

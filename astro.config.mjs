@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.peaksofthebalkans.org',
+  site: 'https://www.thepeaksofthebalkans.com',
   trailingSlash: 'always',
   i18n: {
     locales: ['en', 'nl', 'fr', 'de'],

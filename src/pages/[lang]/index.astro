@@ -17,7 +17,7 @@ const latest = await latestFor(lang, 3);
 const hero = getImage('hero');
 ---
 <Base lang={lang} title={t(lang, 'hero.title')} description={t(lang, 'hero.lead')} path=""
-  jsonLd={[{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Peaks of the Balkans', url: 'https://www.peaksofthebalkans.org/', inLanguage: lang }]}>
+  jsonLd={[{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Peaks of the Balkans', url: 'https://www.thepeaksofthebalkans.com/', inLanguage: lang }]}>
   <section class="hero">
     <Image src={hero} alt="Hiker with trekking poles on a rocky ridge above the Accursed Mountains" widths={[400, 800, 1600, 2400]} sizes="100vw" loading="eager" fetchpriority="high" class="hero-img" />
     <div class="hero-shade"></div>

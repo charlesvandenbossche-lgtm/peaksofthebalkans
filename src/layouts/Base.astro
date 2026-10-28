@@ -18,7 +18,7 @@ interface Props {
 const { lang, title, description, path, available = langs, ogImage, jsonLd = [] } = Astro.props;
 const site = Astro.site!.toString().replace(/\/$/, '');
 const url = (l: Lang) => `${site}/${l}/${path}`;
-const fullTitle = path === '' ? `${title} | peaksofthebalkans.org` : `${title} | Peaks of the Balkans`;
+const fullTitle = path === '' ? `${title} | thepeaksofthebalkans.com` : `${title} | Peaks of the Balkans`;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -79,7 +79,7 @@ const fullTitle = path === '' ? `${title} | peaksofthebalkans.org` : `${title} |
         </div>
         <div>
           <p class="small">{t(lang, 'footer.disclaimer')}</p>
-          <p class="small">{t(lang, 'footer.updated')} · © {new Date().getFullYear()} peaksofthebalkans.org · <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a></p>
+          <p class="small">{t(lang, 'footer.updated')} · © {new Date().getFullYear()} thepeaksofthebalkans.com · <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a></p>
         </div>
       </div>
     </footer>

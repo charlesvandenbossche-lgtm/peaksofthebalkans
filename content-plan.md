@@ -1,4 +1,4 @@
-# Content plan peaksofthebalkans.org
+# Content plan thepeaksofthebalkans.com
 
 The scheduled writer picks the FIRST line with status `todo`, writes it, and changes `todo` to `done YYYY-MM-DD`.
 Add new ideas at the bottom. Slugs are English and identical in all four languages.

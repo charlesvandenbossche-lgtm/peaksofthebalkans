@@ -21,7 +21,7 @@ const og = await optimize({ src: img, width: 1200, format: 'jpg' });
 const available = await translationsOf(slug);
 const toc = headings.filter((h) => h.depth === 2);
 const related = (await articlesFor(lang)).filter((a) => slugOf(a) !== slug).slice(0, 3);
-const site = 'https://www.peaksofthebalkans.org';
+const site = 'https://www.thepeaksofthebalkans.com';
 const jsonLd = [
   {
     '@context': 'https://schema.org', '@type': 'Article',
@@ -29,7 +29,7 @@ const jsonLd = [
     datePublished: d.pubDate.toISOString(), dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
     image: new URL(og.src, site).toString(),
     mainEntityOfPage: `${site}/${lang}/${slug}/`,
-    publisher: { '@type': 'Organization', name: 'peaksofthebalkans.org', url: site },
+    publisher: { '@type': 'Organization', name: 'thepeaksofthebalkans.com', url: site },
   },
   ...(d.answer ? [{
     '@context': 'https://schema.org', '@type': 'FAQPage',
