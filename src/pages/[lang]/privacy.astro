@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import { langs, type Lang } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return langs.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+const host = new URL(Astro.site!).hostname.replace(/^www\./, '');
+const mail = `hello@${host}`;
+const copy: Record<Lang, { title: string; body: string[]; settings: string }> = {
+  en: {
+    title: 'Privacy and cookies',
+    settings: 'Change your cookie settings',
+    body: [
+      `${host} does not use cookies by default and does not ask you for any personal data.`,
+      'Only if you click "Accept" in the cookie banner do we load Google Analytics 4 (Google Ireland Limited). It sets cookies to count visits and to see which pages are read, from which country and on which type of device. We use this only to improve the site. We do not use it for advertising and do not share it with others. Google may process data in the United States under the EU–US Data Privacy Framework. Analytics data is kept for at most 14 months.',
+      'If you click "Decline", Google Analytics is not loaded. You can change your choice at any time with the link below or in the footer.',
+      `Questions, or a request to view or delete data? Email ${mail}. You also have the right to lodge a complaint with your data protection authority.`,
+    ],
+  },
+  nl: {
+    title: 'Privacy en cookies',
+    settings: 'Cookie-instellingen wijzigen',
+    body: [
+      `${host} gebruikt standaard geen cookies en vraagt je geen persoonsgegevens.`,
+      'Alleen als je in de cookiebanner op "Akkoord" klikt, laden we Google Analytics 4 (Google Ireland Limited). Dat plaatst cookies om bezoeken te tellen en te zien welke pagina’s gelezen worden, uit welk land en op welk type toestel. We gebruiken dit enkel om de site te verbeteren, niet voor advertenties, en delen het met niemand. Google kan gegevens verwerken in de Verenigde Staten onder het EU-VS Data Privacy Framework. Analysegegevens worden maximaal 14 maanden bewaard.',
+      'Klik je op "Weigeren", dan wordt Google Analytics niet geladen. Je kunt je keuze altijd wijzigen via de link hieronder of onderaan elke pagina.',
+      `Vragen, of wil je gegevens inzien of laten verwijderen? Mail naar ${mail}. Je hebt ook het recht een klacht in te dienen bij je gegevensbeschermingsautoriteit.`,
+    ],
+  },
+  fr: {
+    title: 'Confidentialité et cookies',
+    settings: 'Modifier vos préférences de cookies',
+    body: [
+      `${host} n’utilise pas de cookies par défaut et ne vous demande aucune donnée personnelle.`,
+      'Uniquement si vous cliquez sur « Accepter » dans la bannière, nous chargeons Google Analytics 4 (Google Ireland Limited). Il dépose des cookies pour compter les visites et voir quelles pages sont lues, depuis quel pays et sur quel type d’appareil. Nous l’utilisons seulement pour améliorer le site, jamais pour de la publicité, et ne partageons rien avec des tiers. Google peut traiter des données aux États-Unis dans le cadre du EU-US Data Privacy Framework. Les données d’analyse sont conservées 14 mois maximum.',
+      'Si vous cliquez sur « Refuser », Google Analytics n’est pas chargé. Vous pouvez modifier votre choix à tout moment via le lien ci-dessous ou en bas de chaque page.',
+      `Des questions, ou envie de consulter ou supprimer vos données ? Écrivez à ${mail}. Vous avez aussi le droit d’introduire une réclamation auprès de votre autorité de protection des données.`,
+    ],
+  },
+  de: {
+    title: 'Datenschutz und Cookies',
+    settings: 'Cookie-Einstellungen ändern',
+    body: [
+      `${host} verwendet standardmäßig keine Cookies und fragt keine personenbezogenen Daten ab.`,
+      'Nur wenn du im Cookie-Banner auf „Akzeptieren“ klickst, laden wir Google Analytics 4 (Google Ireland Limited). Es setzt Cookies, um Besuche zu zählen und zu sehen, welche Seiten gelesen werden, aus welchem Land und auf welchem Gerätetyp. Wir nutzen das nur, um die Seite zu verbessern, nicht für Werbung, und geben nichts an Dritte weiter. Google kann Daten in den USA im Rahmen des EU-US Data Privacy Framework verarbeiten. Analysedaten werden höchstens 14 Monate gespeichert.',
+      'Klickst du auf „Ablehnen“, wird Google Analytics nicht geladen. Du kannst deine Wahl jederzeit über den Link unten oder im Seitenfuß ändern.',
+      `Fragen, oder möchtest du Daten einsehen oder löschen lassen? Schreib an ${mail}. Du hast außerdem das Recht, dich bei deiner Datenschutzbehörde zu beschweren.`,
+    ],
+  },
+};
+const c = copy[lang];
+---
+<Base lang={lang} title={c.title} description={c.body[0]} path="privacy/">
+  <div class="wrap page-head narrow">
+    <h1>{c.title}</h1>
+    <div class="prose">
+      {c.body.map((p) => <p>{p}</p>)}
+      <p><a href="#" data-cookie-settings>{c.settings}</a></p>
+    </div>
+  </div>
+</Base>

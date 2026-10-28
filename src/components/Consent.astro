@@ -1,0 +1,64 @@
+---
+// Google Analytics 4 with a cookie banner. GA only loads AFTER the visitor clicks "Accept".
+// Set the Measurement ID in src/config.ts. With an empty ID nothing is loaded and no banner is shown.
+import { GA_ID } from '../config';
+import type { Lang } from '../i18n/ui';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const copy = {
+  en: { text: 'We use cookies from Google Analytics to see which pages help hikers most. Only if you agree.', accept: 'Accept', decline: 'Decline', more: 'Privacy' },
+  nl: { text: 'We gebruiken cookies van Google Analytics om te zien welke pagina’s wandelaars het meest helpen. Alleen als je akkoord gaat.', accept: 'Akkoord', decline: 'Weigeren', more: 'Privacy' },
+  fr: { text: 'Nous utilisons des cookies Google Analytics pour savoir quelles pages aident le plus les randonneurs. Uniquement avec votre accord.', accept: 'Accepter', decline: 'Refuser', more: 'Confidentialité' },
+  de: { text: 'Wir verwenden Cookies von Google Analytics, um zu sehen, welche Seiten Wandernden am meisten helfen. Nur mit deiner Zustimmung.', accept: 'Akzeptieren', decline: 'Ablehnen', more: 'Datenschutz' },
+}[lang];
+---
+{GA_ID && (
+  <>
+    <div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookies" hidden>
+      <p>{copy.text} <a href={`/${lang}/privacy/`}>{copy.more}</a></p>
+      <div class="consent-btns">
+        <button type="button" data-consent="denied" class="consent-no">{copy.decline}</button>
+        <button type="button" data-consent="granted" class="consent-yes">{copy.accept}</button>
+      </div>
+    </div>
+    <script is:inline define:vars={{ GA_ID }}>
+      (function () {
+        var KEY = 'ga-consent';
+        function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+        function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+        function load() {
+          if (window.__gaLoaded) return; window.__gaLoaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { dataLayer.push(arguments); };
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+          var s = document.createElement('script');
+          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(s);
+        }
+        var box = document.getElementById('consent');
+        function show() { box.hidden = false; }
+        var choice = get();
+        if (choice === 'granted') load(); else if (choice !== 'denied') show();
+        box.addEventListener('click', function (e) {
+          var v = e.target && e.target.getAttribute('data-consent');
+          if (!v) return;
+          set(v); box.hidden = true;
+          if (v === 'granted') load();
+          else if (window.__gaLoaded) location.reload();
+        });
+        document.addEventListener('click', function (e) {
+          if (e.target && e.target.closest && e.target.closest('[data-cookie-settings]')) { e.preventDefault(); show(); }
+        });
+      })();
+    </script>
+  </>
+)}
+<style>
+  .consent { position: fixed; z-index: 50; left: 16px; right: 16px; bottom: 16px; max-width: 560px; margin-inline: auto; background: var(--card, #fff); color: var(--ink, #1c2422); border: 1px solid var(--line, #ddd); border-radius: 14px; box-shadow: 0 10px 30px #0002; padding: 16px 18px; font-size: .92rem; line-height: 1.5; }
+  .consent[hidden] { display: none; }
+  .consent p { margin: 0 0 12px; }
+  .consent-btns { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+  .consent button { font: inherit; font-weight: 600; border-radius: 999px; padding: 8px 18px; cursor: pointer; border: 1px solid var(--line, #ccc); background: transparent; color: inherit; }
+  .consent .consent-yes { background: var(--basalt, #1f2a27); border-color: var(--basalt, #1f2a27); color: #fff; }
+</style>

@@ -3,6 +3,8 @@ import '@fontsource-variable/fraunces';
 import '@fontsource-variable/inter';
 import '../styles/global.css';
 import { languages, langs, t, type Lang } from '../i18n/ui';
+import Consent from '../components/Consent.astro';
+import { GA_ID } from '../config';
 
 interface Props {
   lang: Lang;
@@ -79,9 +81,10 @@ const fullTitle = path === '' ? `${title} | thepeaksofthebalkans.com` : `${title
         </div>
         <div>
           <p class="small">{t(lang, 'footer.disclaimer')}</p>
-          <p class="small">{t(lang, 'footer.updated')} · © {new Date().getFullYear()} thepeaksofthebalkans.com · <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a></p>
+          <p class="small">{t(lang, 'footer.updated')} · © {new Date().getFullYear()} thepeaksofthebalkans.com · <a href={`/${lang}/about/`}>{t(lang, 'nav.about')}</a> · <a href={`/${lang}/privacy/`}>Privacy</a>{GA_ID && <> · <a href="#" data-cookie-settings>Cookies</a></>}</p>
         </div>
       </div>
     </footer>
+    <Consent lang={lang} />
   </body>
 </html>
