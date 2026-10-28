@@ -1,0 +1,33 @@
+name: Fetch photos from media library
+
+on:
+  push:
+    branches: [main]
+    paths: ['scripts/images.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node scripts/fetch-images.mjs
+      - name: Commit updated photos
+        run: |
+          git config user.name "photo-bot"
+          git config user.email "photo-bot@users.noreply.github.com"
+          git add src/assets/img
+          if git diff --cached --quiet; then
+            echo "No photo changes."
+          else
+            git commit -m "Update photos from media library"
+            git push
+          fi
