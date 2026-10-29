@@ -1,7 +1,7 @@
 ---
 // Google Analytics 4 with a cookie banner. GA only loads AFTER the visitor clicks "Accept".
-// Set the Measurement ID in src/config.ts. With an empty ID nothing is loaded and no banner is shown.
-import { GA_ID } from '../config';
+// Set the Measurement ID(s) in src/config.ts. With no ID nothing is loaded and no banner is shown.
+import { GA_ID, GA_IDS } from '../config';
 import type { Lang } from '../i18n/ui';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -21,7 +21,7 @@ const copy = {
         <button type="button" data-consent="granted" class="consent-yes">{copy.accept}</button>
       </div>
     </div>
-    <script is:inline define:vars={{ GA_ID }}>
+    <script is:inline define:vars={{ GA_IDS }}>
       (function () {
         var KEY = 'ga-consent';
         function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
@@ -31,9 +31,9 @@ const copy = {
           window.dataLayer = window.dataLayer || [];
           window.gtag = function () { dataLayer.push(arguments); };
           gtag('js', new Date());
-          gtag('config', GA_ID);
+          GA_IDS.forEach(function (id) { gtag('config', id); });
           var s = document.createElement('script');
-          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_IDS[0];
           document.head.appendChild(s);
         }
         var box = document.getElementById('consent');
