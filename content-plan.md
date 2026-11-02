@@ -6,7 +6,7 @@ Add new ideas at the bottom. Slugs are English and identical in all four languag
 | Status | Slug | Question title (EN) | Notes |
 |---|---|---|---|
 | done 2026-10-29 | komani-lake-ferry | How does the Komani Lake ferry work, and is it worth it? | Times, prices, booking, combining with Theth–Valbonë |
-| todo | theth-guide | What is there to do in Theth? | Blue Eye of Theth, Grunas waterfall, lock-in tower, church, guesthouses |
+| done 2026-11-02 | theth-guide | What is there to do in Theth? | Blue Eye of Theth, Grunas waterfall, lock-in tower, church, guesthouses |
 | todo | valbona-guide | What is there to do in Valbonë? | Village, day hikes, guesthouses, transport |
 | todo | peaks-of-the-balkans-in-7-days | Can you hike the Peaks of the Balkans in 7 days? | Highlights itinerary, which stages to skip, transfers |
 | todo | hrid-lake | How do you hike to Hrid Lake from Babino Polje or Plav? | |
