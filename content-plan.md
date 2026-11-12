@@ -9,7 +9,7 @@ Add new ideas at the bottom. Slugs are English and identical in all four languag
 | done 2026-11-02 | theth-guide | What is there to do in Theth? | Blue Eye of Theth, Grunas waterfall, lock-in tower, church, guesthouses |
 | done 2026-11-05 | valbona-guide | What is there to do in Valbonë? | Village, day hikes, guesthouses, transport |
 | done 2026-11-09 | peaks-of-the-balkans-in-7-days | Can you hike the Peaks of the Balkans in 7 days? | Highlights itinerary, which stages to skip, transfers |
-| todo | hrid-lake | How do you hike to Hrid Lake from Babino Polje or Plav? | |
+| done 2026-11-12 | hrid-lake | How do you hike to Hrid Lake from Babino Polje or Plav? | |
 | todo | dobrdol-plateau | What is Dobërdol like, and where do you sleep there? | Shepherd huts, three-country point, Gjeravica side trip |
 | todo | vusanje-ropojana-grlja | What is there to see in Vusanje, Grlja and the Ropojana valley? | |
 | todo | peaks-of-the-balkans-in-september | Can you hike the Peaks of the Balkans in September or October? | Closing dates, weather, light |
