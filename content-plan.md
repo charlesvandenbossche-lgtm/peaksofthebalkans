@@ -11,7 +11,7 @@ Add new ideas at the bottom. Slugs are English and identical in all four languag
 | done 2026-11-09 | peaks-of-the-balkans-in-7-days | Can you hike the Peaks of the Balkans in 7 days? | Highlights itinerary, which stages to skip, transfers |
 | done 2026-11-12 | hrid-lake | How do you hike to Hrid Lake from Babino Polje or Plav? | |
 | done 2026-11-16 | dobrdol-plateau | What is Dobërdol like, and where do you sleep there? | Shepherd huts, three-country point, Gjeravica side trip |
-| todo | vusanje-ropojana-grlja | What is there to see in Vusanje, Grlja and the Ropojana valley? | |
+| done 2026-11-19 | vusanje-ropojana-grlja | What is there to see in Vusanje, Grlja and the Ropojana valley? | |
 | todo | peaks-of-the-balkans-in-september | Can you hike the Peaks of the Balkans in September or October? | Closing dates, weather, light |
 | todo | peaks-of-the-balkans-in-june | Can you hike the Peaks of the Balkans in June? | Snow, opening dates, 2026 late season |
 | todo | peaks-of-the-balkans-food-water | What do you eat and drink on the Peaks of the Balkans? | Half board, packed lunches, springs, vegetarian |
