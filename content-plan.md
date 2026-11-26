@@ -13,7 +13,7 @@ Add new ideas at the bottom. Slugs are English and identical in all four languag
 | done 2026-11-16 | dobrdol-plateau | What is Dobërdol like, and where do you sleep there? | Shepherd huts, three-country point, Gjeravica side trip |
 | done 2026-11-19 | vusanje-ropojana-grlja | What is there to see in Vusanje, Grlja and the Ropojana valley? | |
 | done 2026-11-23 | peaks-of-the-balkans-in-september | Can you hike the Peaks of the Balkans in September or October? | Closing dates, weather, light |
-| todo | peaks-of-the-balkans-in-june | Can you hike the Peaks of the Balkans in June? | Snow, opening dates, 2026 late season |
+| done 2026-11-26 | peaks-of-the-balkans-in-june | Can you hike the Peaks of the Balkans in June? | Snow, opening dates, 2026 late season |
 | todo | peaks-of-the-balkans-food-water | What do you eat and drink on the Peaks of the Balkans? | Half board, packed lunches, springs, vegetarian |
 | todo | peaks-of-the-balkans-solo | Can you hike the Peaks of the Balkans alone? | Safety, navigation, meeting people |
 | todo | peaks-of-the-balkans-kosovo-stages | What are the Kosovo stages of the Peaks of the Balkans like? | Waymarking, Rugova, Gjeravica |
